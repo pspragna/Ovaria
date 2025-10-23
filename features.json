@@ -1,0 +1,125 @@
+[
+  {
+    "name": "age",
+    "type": "number"
+
+  },
+  {
+    "name": "height",
+    "type": "number"
+  },
+  {
+    "name": "weight",
+    "type": "number"
+  },
+  {
+    "name": "first_period",
+    "type": "number"
+  },
+  {
+    "name": "regular_period",
+    "type": "select",
+    "options": ["Yes", "No"]
+  },
+  {
+    "name": "cycle_length",
+    "type": "number"
+  },
+  {
+    "name": "periods_skipped",
+    "type": "number"
+  },
+  {
+    "name": "blood_loss",
+    "type": "select",
+    "options": ["Heavy", "Normal","Light"]
+  },
+  {
+    "name": "weight_gain",
+    "type": "select",
+    "options": ["Yes", "No"]
+  },
+  {
+    "name": "excercise",
+    "type": "select",
+    "options": ["Yes", "No","Sometimes"]
+  },
+  {
+    "name": "dark_patches",
+    "type": "select",
+    "options": ["Yes", "No"]
+  },
+  {
+    "name": "sleep",
+    "type": "number"
+  },
+  {
+    "name": "step_count",
+    "type": "number"
+  },
+  {
+    "name": "balanced_meal",
+    "type": "select",
+    "options": ["Often", "No","Rarely"]
+  },
+  {
+    "name": "junk_food",
+    "type": "number",
+    "options": ["Often", "No","Rarely"]
+  },
+  {
+    "name": "acne",
+    "type": "select",
+    "options": ["Yes", "No"]
+  },
+  {
+    "name": "facial_hair",
+    "type": "select",
+    "options": ["Yes", "No"]
+  },
+  {
+    "name": "hair_thinning",
+    "type": "select",
+    "options": ["Yes", "No"]
+  },
+  {
+    "name": "history_pcos",
+    "type": "select",
+    "options": ["Yes", "No"]
+  },
+  {
+    "name": "history_diabetes",
+    "type": "select",
+    "options": ["Yes", "No"]
+  },
+  {
+    "name": "thyroid",
+    "type": "select",
+    "options": ["Yes", "No"]
+  },
+  {
+    "name": "anxiety_depression",
+    "type": "select",
+    "options": ["Yes", "No"]
+  },
+  {
+    "name": "mood_swings",
+    "type": "select",
+    "options": ["Yes", "No"]
+  },
+  {
+    "name": "difficulty_sleeping",
+    "type": "select",
+    "options": ["Yes", "No"]
+  },
+  {
+    "name": "low_energy",
+    "type": "select",
+    "options": ["Yes", "No"]
+  },
+  {
+    "name": "cravings",
+    "type": "select",
+    "options": ["Yes", "No"]
+  }
+]
