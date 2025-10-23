@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% block title %}Admin Dashboard{% endblock %}
+{% block content %}
+
+<div class="card text-center">
+    <h2>Welcome, Admin {{ current_user.username }}!</h2>
+    <p>Monitor all users and lifestyle tracking entries 💖</p>
+    <img src="{{ url_for('static', filename='images/admin_hero.jpg') }}" alt="Admin Dashboard Hero">
+</div>
+
+<!-- Users Section -->
+<div class="card">
+    <h3>Registered Users</h3>
+    <table>
+        <tr>
+            <th>Username</th>
+            <th>Role</th>
+        </tr>
+        {% for user in users %}
+        <tr>
+            <td>{{ user.username }}</td>
+            <td>{{ 'Admin' if user.is_admin else 'User' }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+
+<!-- Tracking Entries Section -->
+<div class="card">
+    <h3>All Tracking Entries</h3>
+    <table>
+        <tr>
+            <th>Date</th>
+            <th>Username</th>
+            <th>Steps</th>
+            <th>Sleep Hours</th>
+            <th>Balanced Meals</th>
+            <th>Junk Food</th>
+            <th>Notes</th>
+        </tr>
+        {% for entry in entries %}
+        <tr>
+            <td>{{ entry.date }}</td>
+            <td>{{ entry.user.username if entry.user else 'Unknown' }}</td>
+            <td>{{ entry.step_count }}</td>
+            <td>{{ entry.sleep_hours }}</td>
+            <td>{{ entry.balanced_meal }}</td>
+            <td>{{ entry.junk_food }}</td>
+            <td>{{ entry.notes }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <div style="margin-top: 1rem; text-align:center;">
+        <a href="{{ url_for('admin_export_csv') }}" class="btn btn-primary">
+            <i class="fas fa-file-csv"></i> Export CSV
+        </a>
+    </div>
+</div>
+
+{% endblock %}

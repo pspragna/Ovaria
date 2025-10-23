@@ -1,0 +1,139 @@
+{% extends 'base.html' %}
+{% block title %}Questionnaire{% endblock %}
+{% block content %}
+
+<div class="card">
+    <h2>PCOD Risk Questionnaire</h2>
+    <p>Fill in the details below to get your risk assessment</p>
+    <form method="POST">
+        <div class="form-group"><label>Age</label><input type="number" name="age" required></div>
+        <div class="form-group"><label>Height (cm)</label><input type="number" name="height" required></div>
+        <div class="form-group"><label>Weight (kg)</label><input type="number" name="weight" required></div>
+        <div class="form-group"><label>Age at First Period</label><input type="number" name="first_period" required></div>
+        <div class="form-group"><label>Are your periods regular?</label>
+            <select name="regular_period" required>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select>
+        </div>
+        <div class="form-group"><label>Average Cycle Length (days)</label><input type="number" name="cycle_length" required></div>
+        <div class="form-group"><label>Do you often skip periods?</label>
+            <select name="periods_skipped" required>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select>
+        </div>
+        <div class="form-group"><label>Menstrual Blood Flow</label>
+            <select name="blood_loss" required>
+                <option value="Light">Light</option>
+                <option value="Normal">Normal</option>
+                <option value="Heavy">Heavy</option>
+            </select>
+        </div>
+        <div class="form-group"><label>Have you experienced unexplained weight gain?</label>
+            <select name="weight_gain" required>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select>
+        </div>
+        <div class="form-group"><label>Do you exercise regularly?</label>
+            <select name="excercise" required>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+                <option value="Sometimes">Sometimes</option>
+            </select>
+        </div>
+        <div class="form-group"><label>Do you have dark patches on skin?</label>
+            <select name="dark_patches" required>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select>
+        </div>
+        <div class="form-group"><label>Average Sleep (hours per night)</label><input type="number" name="sleep" required></div>
+        <div class="form-group"><label>Average Daily Step Count</label><input type="number" name="step_count" required></div>
+        <div class="form-group"><label>Do you eat balanced meals?</label>
+            <select name="balanced_meal" required>
+                <option value="Often">Often</option>
+                <option value="No">No</option>
+                <option value="Rarely">Rarely</option>
+            </select>
+        </div>
+        <div class="form-group"><label>How often do you eat junk food?</label>
+            <select name="junk_food" required>
+                <option value="Often">Often</option>
+                <option value="No">No</option>
+                <option value="Rarely">Rarely</option>
+            </select>
+        </div>
+        <div class="form-group"><label>Do you have acne?</label>
+            <select name="acne" required>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select>
+        </div>
+        <div class="form-group"><label>Do you have excess facial hair?</label>
+            <select name="facial_hair" required>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select>
+        </div>
+        <div class="form-group"><label>Do you have hair thinning?</label>
+            <select name="hair_thinning" required>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select>
+        </div>
+        <div class="form-group"><label>Family history of PCOS?</label>
+            <select name="history_pcos" required>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select>
+        </div>
+        <div class="form-group"><label>Family history of Diabetes?</label>
+            <select name="history_diabetes" required>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select>
+        </div>
+        <div class="form-group"><label>Do you have thyroid issues?</label>
+            <select name="thyroid" required>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select>
+        </div>
+        <div class="form-group"><label>Do you struggle with anxiety or depression?</label>
+            <select name="anxiety_depression" required>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select>
+        </div>
+        <div class="form-group"><label>Do you experience frequent mood swings?</label>
+            <select name="mood_swings" required>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select>
+        </div>
+        <div class="form-group"><label>Do you have difficulty sleeping?</label>
+            <select name="difficulty_sleeping" required>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select>
+        </div>
+        <div class="form-group"><label>Do you often feel low on energy?</label>
+            <select name="low_energy" required>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select>
+        </div>
+        <div class="form-group"><label>Do you often have food cravings?</label>
+            <select name="cravings" required>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select>
+        </div>
+        <div class="form-group"><label>BMI</label><input type="number" name="BMI" required></div>
+        <button type="submit" class="btn btn-primary">Get Prediction</button>
+    </form>
+</div>
+
+{% endblock %}

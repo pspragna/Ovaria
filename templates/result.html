@@ -1,0 +1,106 @@
+{% extends 'base.html' %}
+{% block title %}Prediction Result{% endblock %}
+{% block content %}
+
+<style>
+    .custom-card {
+        padding: 30px;
+        border-radius: 16px;
+        background: #ffe4f0;
+        box-shadow: 0 4px 20px #e0b8c7;
+        max-width: 600px;
+        margin: 40px auto;
+    }
+    .custom-btn {
+        background: #d0479e !important;
+        border: none !important;
+        color: white !important;
+        font-weight: bold;
+        padding: 10px 36px;
+        border-radius: 8px;
+        font-size: 1.1em;
+        margin-top: 18px;
+        transition: background-color 0.2s;
+        cursor: pointer;
+    }
+    .custom-btn:hover {
+        background: #b93485 !important;
+    }
+    .donut-chart {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 18px;
+    }
+    .donut-percentage {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 44px;
+        text-align: center;
+        font-size: 1.25em;
+        font-weight: bold;
+        color: #d0479e;
+        pointer-events: none;
+        letter-spacing: .5px;
+    }
+    .donut-container {
+        position: relative;
+        width: 120px;
+        height: 120px;
+        margin: 0 auto 18px auto;
+    }
+    .advice-level {
+        font-size: 1.15em;
+        color: #d0479e;
+        margin-top: 10px;
+        margin-bottom: 0;
+    }
+    .advice-list {
+        margin-left: 18px;
+        margin-top: 8px;
+    }
+</style>
+
+<div class="custom-card">
+    <div class="donut-container">
+        <svg viewBox="0 0 36 36" class="donut-chart" width="120" height="120">
+            <circle cx="18" cy="18" r="16" fill="none" stroke="#fad1e3" stroke-width="4" />
+            <circle cx="18" cy="18" r="16" 
+                fill="none"
+                stroke="#d0479e"
+                stroke-width="4"
+                stroke-dasharray="{{ percent }}, 100"
+                stroke-linecap="round"
+                transform="rotate(-90 18 18)"
+                style="transition: stroke-dasharray 0.8s;" />
+        </svg>
+        <div class="donut-percentage">
+            {{ percent }}%
+        </div>
+    </div>
+    <h2 style="color: #d0479e; font-weight: bold; margin-bottom: 10px;">
+        Your PCOD Risk: {{ percent }}%
+    </h2>
+    {% if diagnosis %}
+        <h3 style="color: #8b1365;">Diagnosis: {{ diagnosis }}</h3>
+    {% endif %}
+    <hr>
+    {% if tips %}
+        <div>
+            <div class="advice-level">Advice</div>
+            <ul class="advice-list">
+                {% for tip in tips %}
+                    <li style="color:#5a1846; font-size: 1em;">{{ tip }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    {% endif %}
+    <div style="text-align: right;">
+        <a href="{{ url_for('dashboard') }}" class="custom-btn">
+            Back to Dashboard
+        </a>
+    </div>
+</div>
+
+{% endblock %}

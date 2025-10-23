@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% block title %}Tracking{% endblock %}
+
+{% block content %}
+<div class="card text-center">
+    <h2>Lifestyle Tracking</h2>
+    <p>Log your daily habits and view your progress 💖</p>
+</div>
+
+<!-- Tracking Form -->
+<div class="card">
+    <h3>Add a New Entry</h3>
+    <form method="POST">
+        <label for="date">Date</label>
+        <input type="date" name="date" id="date" value="{{ request.form.date or '' }}" required>
+
+        <label for="step_count">Step Count</label>
+        <input type="number" name="step_count" id="step_count" value="{{ request.form.step_count or 0 }}" required>
+
+        <label for="sleep">Sleep Hours</label>
+        <input type="number" step="0.1" name="sleep" id="sleep" value="{{ request.form.sleep or 0 }}" required>
+
+        <label for="balanced_meal">Balanced Meals (count)</label>
+        <input type="number" name="balanced_meal" id="balanced_meal" value="{{ request.form.balanced_meal or 0 }}" required>
+
+        <label for="junk_food">Junk Food (count)</label>
+        <input type="number" name="junk_food" id="junk_food" value="{{ request.form.junk_food or 0 }}" required>
+
+        <label for="notes">Notes</label>
+        <textarea name="notes" id="notes" rows="3" placeholder="Any additional notes...">{{ request.form.notes or '' }}</textarea>
+
+        <button type="submit" class="btn btn-primary">Save Entry</button>
+    </form>
+</div>
+
+<!-- Display Entries -->
+<div class="card">
+    <h3>Your Tracking History</h3>
+    <table>
+        <tr>
+            <th>Date</th>
+            <th>Steps</th>
+            <th>Sleep Hours</th>
+            <th>Balanced Meals</th>
+            <th>Junk Food</th>
+            <th>Notes</th>
+        </tr>
+        {% if entries %}
+            {% for entry in entries %}
+            <tr>
+                <td>{{ entry.date }}</td>
+                <td>{{ entry.step_count }}</td>
+                <td>{{ entry.sleep_hours }}</td>
+                <td>{{ entry.balanced_meal }}</td>
+                <td>{{ entry.junk_food }}</td>
+                <td>{{ entry.notes }}</td>
+            </tr>
+            {% endfor %}
+        {% else %}
+            <tr>
+                <td colspan="6" style="text-align:center;">No tracking entries yet.</td>
+            </tr>
+        {% endif %}
+    </table>
+</div>
+{% endblock %}
